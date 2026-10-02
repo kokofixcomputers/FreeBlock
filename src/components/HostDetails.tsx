@@ -3,6 +3,7 @@ import { Check, ExternalLink, HelpCircle, MapPin, X } from 'lucide-react';
 import type { Host } from '../types';
 import { fmtRenewal, fmtCount, fmtCpu, fmtRam, fmtStorage, REGION_LABELS, UPTIME_LABELS } from '../lib/filter';
 import { HostIcon } from './HostIcon';
+import { EDIT_DATA_URL } from '../lib/links';
 
 const flag = (v: boolean | undefined) =>
   v === undefined ? <HelpCircle className="unk" size={16} /> : v ? <Check className="yes" size={18} /> : <X className="no" size={18} />;
@@ -135,7 +136,10 @@ export function HostDetails({ host: h, onClose }: { host: Host; onClose: () => v
         </div>
 
         <div className="details-foot">
-          <small>Last checked {h.verified} · ~ = estimated</small>
+          <small>
+            Last checked {h.verified} · ~ = estimated ·{' '}
+            <a className="link-inline" href={EDIT_DATA_URL} target="_blank" rel="noreferrer">Suggest a change</a>
+          </small>
           <a className="btn" href={h.url} target="_blank" rel="noreferrer">Visit {h.name} <ExternalLink size={14} /></a>
         </div>
       </div>

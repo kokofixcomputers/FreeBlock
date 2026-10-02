@@ -223,3 +223,16 @@ svg { flex: none; }
 .good-text { color: var(--brand); font-weight: 600; }
 .warn-text { color: #fbbf24; font-weight: 600; }
 .cpu-model { margin-top: -6px; font-size: 12px; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+
+.hero-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.contribute {
+  max-width: 1200px; margin: 0 auto 32px; padding: 28px; border-radius: var(--radius);
+  display: flex; gap: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  background: linear-gradient(120deg, rgba(74,222,128,.12), rgba(139,92,246,.12)); border: 1px solid var(--line);
+}
+.contribute { width: calc(100% - 48px); }
+.contribute h2 { margin: 0 0 6px; font-size: 20px; }
+.contribute p { margin: 0; max-width: 560px; color: var(--muted); line-height: 1.55; font-size: 14px; }
+.contribute-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.link-inline { color: var(--brand); text-decoration: none; }
+.link-inline:hover { text-decoration: underline; }

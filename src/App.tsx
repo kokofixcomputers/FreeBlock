@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { hosts, LAST_UPDATED } from './data/hosts';
 import { ALL_SOFTWARE, applyFilters, defaultFilters, type Filters } from './lib/filter';
 import type { Region } from './types';
-import { Pickaxe, X } from 'lucide-react';
+import { GitBranch, GitPullRequest, Pickaxe, X } from 'lucide-react';
+import { EDIT_DATA_URL, NEW_ISSUE_URL, REPO } from './lib/links';
 import { HostIcon } from './components/HostIcon';
 import { FiltersPanel } from './components/FiltersPanel';
 import { HostCard } from './components/HostCard';
@@ -76,7 +77,12 @@ export default function App() {
     <>
       <div className="bg" aria-hidden />
       <header className="hero">
-        <span className="eyebrow"><Pickaxe size={14} /> FreeBlock</span>
+        <div className="hero-top">
+          <span className="eyebrow"><Pickaxe size={14} /> FreeBlock</span>
+          <a className="btn ghost" href={REPO} target="_blank" rel="noreferrer">
+            <GitBranch size={15} /> Contribute
+          </a>
+        </div>
         <h1>Free Minecraft hosting, <em>compared.</em></h1>
         <p>
           {hosts.length} free hosts. Real RAM, CPU and storage numbers, server locations, and a side-by-side
@@ -111,6 +117,23 @@ export default function App() {
           )}
         </section>
       </main>
+
+      <section className="contribute">
+        <div>
+          <h2>Know a host we’re missing?</h2>
+          <p>
+            FreeBlock is open source. Add a new host, fix outdated specs or improve anything else — all host data lives in a
+            single file, so most changes are one small pull request.
+          </p>
+        </div>
+        <div className="contribute-actions">
+          <a className="btn primary" href={EDIT_DATA_URL} target="_blank" rel="noreferrer">
+            <GitPullRequest size={15} /> Add or edit a host
+          </a>
+          <a className="btn ghost" href={NEW_ISSUE_URL} target="_blank" rel="noreferrer">Report an issue</a>
+          <a className="btn ghost" href={REPO} target="_blank" rel="noreferrer"><GitBranch size={15} /> View on GitHub</a>
+        </div>
+      </section>
 
       <footer className="site-foot">
         Free-tier limits change often. Numbers marked “~” are estimates. Last checked {LAST_UPDATED} — always confirm on the host’s site.
