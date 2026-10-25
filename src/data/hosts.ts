@@ -392,6 +392,8 @@ export const hosts: Host[] = [
     maxPlayers: null,
     uptime: 'on-demand',
     locations: [],
+    renewal: {},
+    uptimeNote: 'Requires renewal.',
     software: ['BungeeCord', 'Paper', 'Vanilla', 'NeoForge'],
     mods: true,
     plugins: true,
